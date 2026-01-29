@@ -5,13 +5,35 @@
 }
 
 .todo-container{
-    width: 90%;
+    width: 80%;
     margin: 20vh auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     height: 80vh;
     text-align: center;
+    box-shadow: 8px -5px 8px gray;
+}
+
+@media(max-width:800px){
+    .todo-container{
+        flex-direction: column;
+        margin: 10vh auto;
+    }
+    .tasks{
+        display: flex;
+
+    }
+    .upcoming-completed{
+        width: 90%;
+    }
+    .today{
+        order: -1;
+        width: 90%;
+    }
+    .input-container{
+        width: 90%;
+    }
 }
 
 .upcoming-completed{
@@ -21,10 +43,33 @@
     padding: 30px 10px;
 }
 
+.tasks{
+    background: rgba(14, 21, 82, 0.2);
+    height: 50%;
+    padding: 30px 0;
+    color: white;
+    margin: 15px auto;
+}
+
+.tasks-div{
+    margin-top: 10px;
+    border-bottom: 2px white solid;
+    padding: 8px 0;
+}
+
+.tasks-div h3{
+    cursor: pointer;
+}
+
+.completed .todo-entry {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+
 .today{
     padding: 30px 10px;
     width: 40%;
-    border: 2px red solid;
     height: 100%;
     overflow: scroll;
 }
@@ -76,7 +121,9 @@
 }
 
 .todo-radio{
-    color: black;
+    accent-color: navy;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 .todo-button{
     border: none;
