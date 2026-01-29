@@ -26,6 +26,7 @@
     width: 40%;
     border: 2px red solid;
     height: 100%;
+    overflow: scroll;
 }
 
 .input-container{
@@ -51,6 +52,10 @@
   padding: 0;
 }
 
+.input-button:active{
+    opacity: 0.5;
+}
+
 .input-button-plus-img {
   width: 18px;
   height: 18px;
@@ -64,18 +69,48 @@
     gap: 10px;
     width: 300px;
     margin: 0 auto;
-    padding: 25px 8px;
-    box-shadow: 15px 15px 12px black;
+    padding: 30px 15px;
+    box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.5);
     position: relative;
     height: auto;
 }
 
+.todo-radio{
+    color: black;
+}
 .todo-button{
     border: none;
     position: absolute;
     right: 5px;
     bottom: 5px;
     cursor: pointer;
+}
+
+.todo-button:active{
+    opacity: 0.5;
+}
+
+.todo-button-delete-img{
+    width: 18px;
+    height: 18px;
+}
+
+.todo-edit{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    border: none;
+    background: white;
+    cursor: pointer;
+}
+
+.todo-edit:active{
+    opacity: 0.5;
+}
+
+.todo-butto-edit-img{
+    width: 18px;
+    height: 18px;
 }
 
 /*Color Picker*/
