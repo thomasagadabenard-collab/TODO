@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO LIST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="todo-container">
+        <div class="upcoming-completed">
+            <h2>Zenstride</h2>
+
+            <div>
+                <h3>Upcoming</h3>
+            </div>
+            <div>
+                <h3>
+                    Completed
+                </h3>
+            </div>
+        </div>
+
+        <div class="today">
+            <h1>Today's Task</h1>
+            <p>You have <span>4</span> tasks left today, You got this</p>
+
+            <div class="input-container">
+                <input type="text" class="input-text">
+                <button class="input-button">
+                    <img src="images/plus.svg" alt="plus-icon" class="input-button-plus-img">
+                </button>
+            </div>
+
+            <div class="todo">
+                <input type="radio" class="todo-radio">
+                <div class="todo-entry">Finish Project proposal</div>
+                <button class="todo-button">
+                    <img src="images/delete.svg" alt="delete icon" class="todo-button-delete-img">
+                </button>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="color-picker">
+        <input type="color" class="color-input">
+        <button class="color-button">Add color</button>
+
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
