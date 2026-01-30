@@ -8,55 +8,50 @@ colorButton.addEventListener("click", () => {
 
 })
 
-let today = document.querySelector(".today");
-let inputText = document.querySelector(".input-text")
-let inputButton = document.querySelector(".input-button");
-let todoEntry;
-let todoRadio;
 
-function createDiv (){
-    let todo = document.createElement("div");
+const today = document.querySelector(".today");
+const inputText = document.querySelector(".input-text");
+const inputButton = document.querySelector(".input-button");
+const filters = document.querySelectorAll(".tasks-div h3");
+
+
+function createTodo() {
+    const todo = document.createElement("div");
     todo.className = "todo";
-    today.appendChild(todo)
+    todo.dataset.status = "active"; 
 
-    todoRadio = document.createElement("input")
-    todoRadio.setAttribute("type", "checkbox");   
-    todoRadio.className = "todo-radio";
-    todo.appendChild(todoRadio);
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "todo-radio";
 
-    todoEntry = document.createElement("p");
-    todoEntry.className = "todo-entry";
-    todo.appendChild(todoEntry)
+    const entry = document.createElement("p");
+    entry.className = "todo-entry";
 
-    let todoButton = document.createElement("button");
-    todoButton.className = "todo-button";
-    todo.appendChild(todoButton)
-    let deleteImg = document.createElement("img");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "todo-button";
+
+    const deleteImg = document.createElement("img");
     deleteImg.src = "images/delete.svg";
     deleteImg.alt = "delete icon";
     deleteImg.className = "todo-button-delete-img";
-    todoButton.appendChild(deleteImg)
 
-    let todoEdit = document.createElement("button");
-    todoEdit.className = "todo-edit";
-    todo.appendChild(todoEdit)
-    let editImg = document.createElement("img");
+    deleteBtn.appendChild(deleteImg);
+
+    const editBtn = document.createElement("button");
+    editBtn.className = "todo-edit";
+
+    const editImg = document.createElement("img");
     editImg.src = "images/edit.svg";
     editImg.alt = "edit icon";
     editImg.className = "todo-butto-edit-img";
-    todoEdit.appendChild(editImg)
 
-    deleteImg.addEventListener("click", () => {
-        todo.remove();
-    })
+    editBtn.appendChild(editImg);
 
-    todoEdit.addEventListener("click", () => {
-        todoEntry.contenteditable = true;
-        todoEntry.focus();
-    })
+    todo.append(checkbox, entry, deleteBtn, editBtn);
+    today.appendChild(todo);
 
-    todoRadio.addEventListener("change", () => {
-        if (todoRadio.checked) {
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
             todo.dataset.status = "completed";
             todo.classList.add("completed");
         } else {
@@ -65,10 +60,18 @@ function createDiv (){
         }
     });
 
-    return todoEntry;
+    deleteBtn.addEventListener("click", () => {
+        todo.remove();
+    });
+
+    editBtn.addEventListener("click", () => {
+        entry.contentEditable = true;
+        entry.focus();
+    });
+
+    return entry;
 }
 
-const filters = document.querySelectorAll(".tasks-div h3");
 
 filters.forEach(filter => {
     filter.addEventListener("click", () => {
@@ -96,25 +99,11 @@ function filterTodos(type) {
 
 
 inputButton.addEventListener("click", () => {
-    if (inputText.value === "") return;
+    if (inputText.value.trim() === "") return;
 
-    const entry = createDiv();
-    entry.textContent = inputText.value;
+    const entry = createTodo();
+    entry.textContent = inputText.value.trim();
 
     inputText.value = "";
     inputText.focus();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
