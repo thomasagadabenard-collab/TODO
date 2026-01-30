@@ -107,3 +107,8 @@ inputButton.addEventListener("click", () => {
     inputText.value = "";
     inputText.focus();
 });
+
+
+fetch("https://fakestoreapi.com/products")
+.then(res => res.json())
+.then(data => console.log(data));
