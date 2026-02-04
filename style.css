@@ -148,6 +148,11 @@
     cursor: pointer;
 }
 
+.todo-entry{
+    padding: 5px 15px;
+    width: 70%;
+}
+
 .todo-edit:active{
     opacity: 0.5;
 }
